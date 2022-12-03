@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form</title>
+    <link rel="stylesheet" href="form.css" />
+  </head>
+  <body>
+    <div id="first_div">
+      <h2>Student Registration Form</h2>
+
+      <form>
+        <div class="container">
+          <div class="main_div">
+            <label for="" style="display: block">First Name</label>
+            <input id="f_name" type="text" placeholder="First Name" />
+            <span id="firstname_alert"></span>
+          </div>
+
+          <div class="main_div">
+            <label for="" style="display: block">Middle Name</label>
+            <input id="m_name" type="text" placeholder="Middle Name" />
+            <span id="middlename_alert"></span>
+          </div>
+
+          <div class="main_div">
+            <label for="" style="display: block">Last Name</label>
+            <input id="l_name" type="text" placeholder="Last Name" />
+            <span id="lastname_alert"></span>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="main_div">
+            <label for="" style="display: block">Enrollment Number</label>
+            <input
+              type="text"
+              id="erno"
+              placeholder="Enter Enrollment Number"
+            />
+            <span id="erno_alert"></span>
+          </div>
+
+          <div class="main_div">
+            <label for="" style="display: block">Email Id</label>
+            <input type="email" id="email" placeholder="Enter Email ID" />
+            <span id="email_alert"></span>
+          </div>
+
+          <div class="main_div">
+            <label for="" style="display: block">Address</label>
+            <input type="text" name="" id="add" placeholder="Enter Address" />
+            <span id="address_alert"></span>
+          </div>
+        </div>
+
+        <div class="container">
+          <div class="main_div">
+            <label for="" style="display: block">Mobile Number </label>
+            <input type="tel" id="mo-no" placeholder="Enter Mobile Number" />
+            <span id="mono_alert"></span>
+          </div>
+
+          <div class="main_div">
+            <label for="" style="display: block">Date of Birth</label>
+            <input type="date" id="dob" placeholder="Select your Date of Birth" min="2001-01-01" max="2022-12-31"/>
+            <span id="dob_alert"></span>
+          </div>
+
+          <div class="main_div">
+            <label for="" style="display: block">Department </label>
+            <select name="department" id="department" style=" height: 32px; width: 232px; margin: 4px; border: 2px solid black; border-radius: 8px ">
+              <option value="">Information Technology</option>
+              <option value="">Computer Engineering</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="container">
+
+          <div class="main_div">
+            <label for="" style="display: block">Category </label>
+            <select name="category" id="category" style=" height: 32px; width: 232px; margin: 4px; border: 2px solid black; border-radius: 8px ">
+              <option value="">General</option>
+              <option value="">General(EWS)</option>
+              <option value="">SEBC</option>
+              <option value="">SC</option>
+              <option value="">ST</option>
+
+
+
+            </select>
+          </div>
+
+          <div class="main_div " style="margin-left:40px" >
+            <label for="" style="display: block">Blood Group</label>
+            <select name="department" id="department" style=" height: 32px; width: 232px; margin: 4px; border: 2px solid black; border-radius: 8px;  ">
+              <option value="">A+</option>
+              <option value="">B+</option>
+              <option value="">O+</option>
+              <option value="">AB+</option>
+              <option value="">A-</option>
+              <option value="">B-</option>
+              <option value="">O-</option>
+              <option value="">AB-</option>
+            </select>
+          </div>
+
+          <div class="gender main_div" style="margin-left:40px">
+            <label for="">Select Gender:</label>
+            <div style="display: inline" class="sub_div">
+              <input type="radio" name="gender" id="male" checked />
+              <label for="" style="display: inline">Male</label>
+              <input type="radio" name="gender" id="female" />
+              <label for="" style="display: inline">Female</label>
+              <span id="gender_alert"></span>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <div class="submit_div">
+        <!-- <input type="button" id="submit" value="Submit" /> -->
+        <button id="submit" onclick="submit()">Submit</button>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    submit = () => {
+      // console.log("clicked");
+      calleventlisteners();
+      let state1 = fcs1();
+      let state2 = fcs2();
+      let state3 = fcs3();
+      let state4 = fcs4();
+      let state5 = fcs5();
+      let state6 = fcs6();
+      let state7 = fcs7();
+      let state8 = fcs8();
+
+      if ( state1 == true && state2 == true && state3 == true && state4 == true && state5 == true && state6 == true && state7 == true && state8 == true ) {
+        document.getElementById("f_name").value = "";
+        document.getElementById("m_name").value = "";
+        document.getElementById("l_name").value = "";
+        document.getElementById("erno").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("mo-no").value = "";
+        document.getElementById("add").value = "";
+        document.getElementById("dob").value = "";
+      }
+    };
+    let valid1,
+      valid2,
+      valid3,
+      valid4,
+      valid5,
+      valid6,
+      valid7,
+      valid8 = true;
+
+    function calleventlisteners() {
+      document.getElementById("f_name").addEventListener("input", fcs1);
+      document.getElementById("erno").addEventListener("input", fcs2);
+      document.getElementById("email").addEventListener("input", fcs3);
+      document.getElementById("mo-no").addEventListener("input", fcs4);
+      document.getElementById("add").addEventListener("input", fcs5);
+      document.getElementById("dob").addEventListener("input", fcs6);
+      document.getElementById("m_name").addEventListener("input", fcs7);
+      document.getElementById("l_name").addEventListener("input", fcs8);
+    }
+
+    // validation for first name
+    function fcs1() {
+      let n1 = document.getElementById("f_name").value;
+      let exp = (/^[A-Z][a-z]+$/)
+
+      if (n1 == "" || n1 == " ") {
+        document.getElementById("firstname_alert").innerHTML = "Enter your Name";
+        valid1 = false;
+      } else if (!exp.test(n1)) {
+        document.getElementById("firstname_alert").innerHTML =
+          "Name must start with Upper case and must be in chracter formate";
+        valid1 = false;
+      } else {
+        document.getElementById("firstname_alert").innerHTML = "";
+        valid1 = true;
+      }
+      return valid1;
+    }
+ 
+    function fcs7() {
+      let n2 = document.getElementById("m_name").value;
+      let exp = (/^[A-Z][a-z]+$/);
+
+      if (n2 == "" || n2 == " ") {
+        document.getElementById("middlename_alert").innerHTML = "Enter your Middle Name";
+        valid7 = false;
+      } else if (!exp.test(n2)) {
+        document.getElementById("middlename_alert").innerHTML =
+          "Middle Name must start with Upper case and must be in chracter formate";
+        valid7 = false;
+      } else {
+        document.getElementById("middlename_alert").innerHTML = "";
+        valid7 = true;
+      }
+      return valid7;
+    }
+
+    function fcs8() {
+      n3= document.getElementById("l_name").value;
+      let exp =(/^[A-Z][a-z]+$/);
+
+      if (n3 == "" || n3 == " ") {
+        document.getElementById("lastname_alert").innerHTML = "Enter your Last Name";
+        vali81 = false;
+      } else if (!exp.test(n3)) {
+        document.getElementById("lastname_alert").innerHTML =
+          "Last Name must start with Upper case and must be in chracter formate";
+        valid8 = false;
+      } else {
+        document.getElementById("lastname_alert").innerHTML = "";
+        valid8 = true;
+      }
+      return valid8;
+    }
+    // validation for Er no
+    function fcs2() {
+      let er_no = document.getElementById("erno").value;
+      let num = /([0-9]){12}/g;
+      if (er_no == " " || er_no == "") {
+        document.getElementById("erno_alert").innerHTML =
+          "Enter your enrollment no.";
+        valid2 = false;
+      } else if (!num.test(er_no)) {
+        document.getElementById("erno_alert").innerHTML =
+          "ErNo must be Number and  12 digit";
+        valid2 = false;
+      } else if (er_no.length != 12) {
+        document.getElementById("erno_alert").innerHTML =
+          "Enrollment no. must be 12 digit";
+        valid2 = false;
+      } else {
+        document.getElementById("erno_alert").innerHTML = "";
+        valid2 = true;
+      }
+      return valid2;
+    }
+   
+    // validation for email ID
+    function fcs3() {
+      let email = document.getElementById("email").value;
+      let exp = /^([_\-\.0-9a-zA-Z]+)@([_\-\.a-zA-Z]+)\.[a-zA-Z]{2,7}$/;
+
+      if (email == " " || email == "") {
+        document.getElementById("email_alert").innerHTML =
+          "Enter your Email Id";
+        valid3 = false;
+      } else if (!exp.test(email)) {
+        console.log(email.match(exp));
+        document.getElementById("email_alert").innerHTML =
+          "Email address is not valid ";
+        valid3 = false;
+      } else {
+        document.getElementById("email_alert").innerHTML = "";
+        valid3 = true;
+      }
+      return valid3;
+    }
+  
+
+    //validation for mobile no.
+    function fcs4() {
+      let mobile = document.getElementById("mo-no").value;
+      let mobile_no = mobile.length;
+      let exp = /[0-9]{10}/g;
+      if (mobile_no == " " || mobile_no == "") {
+        document.getElementById("mono_alert").innerHTML =
+          "Enter your Mobile no.";
+        valid4 = false;
+      } else if (!exp.test(mobile)) {
+        document.getElementById("mono_alert").innerHTML =
+          "Mobile no. must be Number and contains 10digit  ";
+        valid4 = false;
+      } else if (mobile_no != 10) {
+        document.getElementById("mono_alert").innerHTML =
+          "Mobile no. must be 10 digit";
+        valid4 = false;
+      } else {
+        document.getElementById("mono_alert").innerHTML = "";
+        valid4 = true;
+      }
+      return valid4;
+    }
+   
+
+    // validation foer address
+    function fcs5() {
+      let add = document.getElementById("add").value;
+      if (add == "" || add == " ") {
+        document.getElementById("address_alert").innerHTML =
+          "Enter your Address";
+        valid5 = false;
+      } else {
+        document.getElementById("address_alert").innerHTML = "";
+        valid5 = true;
+      }
+      return valid5;
+    }
+  
+
+    //validation for Date of Birth
+    function fcs6() {
+      let dob = document.getElementById("dob").value;
+      if (dob == "") {
+        document.getElementById("dob_alert").innerHTML =
+          "Plese select your Date of Birth";
+        valid6 = false;
+      } else {
+        document.getElementById("dob_alert").innerHTML = "";
+        valid6 = true;
+      }
+      return valid6;
+    }
+  
+  </script>
+</html>
